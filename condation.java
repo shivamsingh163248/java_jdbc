@@ -38,7 +38,12 @@ public class condation {
         if (g == 1) {
             System.out.println("this is the condation the of the 1");
         } else {
-            System.out.println("this is not a condation of the  of the 1");
+            if (h == 1) {
+                System.out.println("this is the b value are the 1");
+                
+            } else {
+                System.out.println("this is the b not value of the 1");
+            }
         }
     }
 }
