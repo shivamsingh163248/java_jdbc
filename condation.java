@@ -1,6 +1,9 @@
 import java.util.*;
 public class condation {
-     public static void main(String[] args) {
+     /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
       Scanner age = new Scanner(System.in);
       
@@ -32,8 +35,7 @@ public class condation {
         int l = 2*g*h;
         System.out.println(k+m+l);
     
-    
-        age.close();
+       
 
         if (g == 1) {
             System.out.println("this is the condation the of the 1");
@@ -45,5 +47,20 @@ public class condation {
                 System.out.println("this is the b not value of the 1");
             }
         }
+
+         int inp = age.nextInt();
+         int jvm = age.nextInt();
+         int imp = age.nextInt();
+         int jsm = age.nextInt(); 
+        if ((inp == jvm) && (imp > jsm)) {
+            System.out.println("this is the equall number");
+        } else {
+            System.out.println("this is the not equall number");
+        }
+
+        age.close();
+    
+    
+
     }
 }
