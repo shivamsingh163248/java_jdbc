@@ -64,6 +64,7 @@ public static void main(String[] args) {
     System.out.println("fristly we done the do program then we chack the condaton:-"+a);
     a++;
     System.out.println("again chack the condation value"+a);
+    System.out.println("there are the nothing changes");
     
 
   } while (a > 4 );
