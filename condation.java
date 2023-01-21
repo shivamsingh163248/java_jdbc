@@ -57,6 +57,27 @@ public class condation {
         } else {
             System.out.println("this is the not equall number");
         }
+        if (imp == inp) {
+            System.out.println("there are two number aare the match");
+        } else {
+           System.out.println("therre are the not same number are the match");
+        }
+        if (jvm == jsm) {
+            System.out.println("there is the same number of two value");
+        } else {
+            System.out.println("there is two number are the not equall");
+        }
+        int dk = 6 , rt = 7  , sz = 4 , mb = 6;
+        if (dk >= rt ) {
+           System.out.println("two number are the same "); 
+           if (sz == mb) {
+            System.out.println("this is the also two equall number");
+           } else {
+            System.out.println("this is not equall number");
+           }
+        } else {
+            System.out.println("this is not a euall number");
+        }
 
         age.close();
     
