@@ -66,6 +66,7 @@ public static void main(String[] args) {
     System.out.println("again chack the condation value"+a);
     System.out.println("there are the nothing changes");
     System.out.println("my name is ankit i am working for the this dirctory");
+    System.out.println("i am working hear");
     
 
   } while (a > 4 );
