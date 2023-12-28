@@ -24,6 +24,13 @@ public class Main {
         try {
             Connection connection = DriverManager.getConnection(url , username , password);
             Statement statement = connection.createStatement();
+            String quary  = "select * from student" ;
+            ResultSet  resultSet = statement.executeQuery(quary) ;
+
+            // now creating the while loop for the retrive deta from the data base
+
+
+
 
         }catch (SQLException e){
             System.out.println(e.getMessage());
