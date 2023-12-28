@@ -7,6 +7,24 @@ public class Detail {
 
    private String gender ;
    private  String Mobile_number ;
+   private  String email ;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Detail(String fist_name, String last_name, String mobile_number, String gender, String mobile_number1, String email) {
+        this.fist_name = fist_name;
+        this.last_name = last_name;
+        this.mobile_number = mobile_number;
+        this.gender = gender;
+        Mobile_number = mobile_number1;
+        this.email = email;
+    }
 
     public Detail(String fist_name, String last_name, String mobile_number, String gender, String Mobile_number) {
         this.fist_name = fist_name;

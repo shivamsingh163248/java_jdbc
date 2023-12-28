@@ -12,13 +12,15 @@ public class userInput {
         String last_name = input.next() ;
         System.out.println("enter the mobile number");
         String mobile_number = input.next() ;
+        System.out.println("enter the email");
+        String email = input.next() ;
         System.out.println("enter the geder");
         System.out.println(" Press 1 : Male  and Press 2 : Femail") ;
         int gender_number = input.nextInt() ;
         String gender ;
         // now creating the condition
         if (gender_number == 1){
-            gender = "Male" ;
+            gender = " Male" ;
         }else{
             gender = "Female" ;
         }
@@ -26,7 +28,8 @@ public class userInput {
 
 
 
-        Detail  student_detail = new Detail(frist_name , last_name  , mobile_number , gender , mobile_number) ;
+        Detail  student_detail = new Detail(frist_name , last_name  , mobile_number , gender , mobile_number , email ) ;
+        return  student_detail ;
     }
 
 }

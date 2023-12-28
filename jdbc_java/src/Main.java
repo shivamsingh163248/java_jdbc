@@ -60,12 +60,27 @@ public class Main {
 
         // creating the try statement
 
+        // creating the obejct of the take input
+        userInput detail = new userInput() ;
+       Detail filldetail = detail.inputStore() ;
+
 
 
         try {
-            Connection connection =DriverManager.getConnection(url , username , password) ;
+            Connection connection = DriverManager.getConnection(url , username , password) ;
             Statement statement = connection.createStatement() ;
-            String quey = String.format("INSERT INTO STUDENT(first_name , last_name , email , gender , mobile_no)VALUES( '%s','%s','%s','%s','%s')" , )
+            String quey = String.format("INSERT INTO STUDENT(first_name , last_name , email , gender , mobile_no)VALUES( '%s','%s','%s','%s','%s')" , filldetail.getFist_name() , filldetail.getLast_name() , filldetail.getEmail() , filldetail.getGender() , filldetail.getMobile_number() );
+
+            // now creating the excument
+            int rowAffect  = statement.executeUpdate(quey) ;
+
+            // now printing the message
+            if (rowAffect > 0){
+                System.out.println("data inserted successful ! ");
+            }else {
+                System.out.println("Data not inserted");
+            }
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
