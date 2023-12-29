@@ -101,7 +101,7 @@ public class Main {
             // creating the statement line
             Statement statement = connection.createStatement() ;
             // now creating the query
-            String query = String.format("UPDATE  STUDENT SET '%s' = '%s' WHERE id = %d " , updatestring, newupdatevalue,  1001) ;
+            String query = String.format("UPDATE  STUDENT SET %s = '%s' WHERE id = %d " , updatestring, newupdatevalue,  1001) ;
             // now excuation of the query
             int rowaffected = statement.executeUpdate(query) ;
 

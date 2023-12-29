@@ -154,7 +154,7 @@ public class Detail {
                     gender = "Female";
                 }
                 setGender(gender);
-                return gender;
+                return "gender";
             }
             case 4:
             {
@@ -192,15 +192,15 @@ public class Detail {
     public String updatevalue(String value){
 
         // creating the switch statement
-        if (value.equals("first_name")){
+        if (value.equalsIgnoreCase("first_name")){
             return getFist_name() ;
-        }else if(value.equals("last_name")){
+        }else if(value.equalsIgnoreCase("last_name")){
             return getLast_name();
-        }else if (value.equals("email")){
+        }else if (value.equalsIgnoreCase("email")){
             return getEmail() ;
-        }else if(value.equals("gender")){
+        }else if(value.equalsIgnoreCase("gender")){
             return getGender();
-        }else if (value.equals("mobile_no")){
+        }else if (value.equalsIgnoreCase("mobile_no")){
             return getMobile_number();
         }else {
             return null ;
