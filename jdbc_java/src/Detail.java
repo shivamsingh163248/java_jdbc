@@ -110,7 +110,7 @@ public class Detail {
     }
 
     // creating the function for the update the information usiing the switch
-    public void updateInformation(){
+    public String updateInformation(){
 
         System.out.println("enter the number for the update information for the followig number down ");
         System.out.println(" PRESS 1 : UPDATE FRIST NAME");
@@ -122,7 +122,89 @@ public class Detail {
         int number = input.nextInt() ;
         // NOW CREATING THE Switch care
 
-        switch ()
+        switch (number){
+
+            case 1:
+            {
+                System.out.println("enter the update frist name ");
+                String fist_name = input.next() ;
+                // now set the vale
+                setFist_name(fist_name);
+                return "first_name";
+
+            }
+            case 2:
+            {
+                System.out.println("enter the update last name ");
+                String last_name = input.next() ;
+                // now set the vale
+                setLast_name(last_name);
+                return "last_name" ;
+            }
+            case 3:
+            {
+                System.out.println("enter the update gender ");
+                System.out.println(" Press 1 : Male  and Press 2 : Femail");
+                int gender_number = input.nextInt();
+                String gender;
+                // now creating the condition
+                if (gender_number == 1) {
+                    gender = "Male";
+                } else {
+                    gender = "Female";
+                }
+                setGender(gender);
+                return gender;
+            }
+            case 4:
+            {
+                System.out.println("enter the update email ");
+                String email = input.next() ;
+                // now set the vale
+                setEmail(email);
+                return "email";
+            }
+            case 5:
+            {
+                System.out.println("enter the update mobile number");
+                String mobile_number = input.next() ;
+                // now set the vale
+                setMobile_number(mobile_number);
+                return "mobile_no";
+            }
+
+            // now creating the default
+            default: System.out.println("out of scope ");
+
+
+
+
+        }
+
+        String blank =" " ;
+        return blank ;
+
+
+    }
+
+
+    // creating the new method for the return new update value
+    public String updatevalue(String value){
+
+        // creating the switch statement
+        if (value.equals("first_name")){
+            return getFist_name() ;
+        }else if(value.equals("last_name")){
+            return getLast_name();
+        }else if (value.equals("email")){
+            return getEmail() ;
+        }else if(value.equals("gender")){
+            return getGender();
+        }else if (value.equals("mobile_no")){
+            return getMobile_number();
+        }else {
+            return null ;
+        }
     }
 
 }

@@ -87,6 +87,12 @@ public class Main {
         // creating the update operation
 
         // creating the try block for the hendal the exception
+        // now creating the object
+       String updatestring =  filldetail.updateInformation();
+        String newupdatevalue = filldetail.updatevalue(updatestring);
+        System.out.println(updatestring+" "+newupdatevalue);
+
+
         try {
 
             // frist lode the driver using the class for name
@@ -95,7 +101,18 @@ public class Main {
             // creating the statement line
             Statement statement = connection.createStatement() ;
             // now creating the query
-            String query = "UPDATE student SET first_name = %s WHERE id = %d" ,
+            String query = String.format("UPDATE  STUDENT SET '%s' = '%s' WHERE id = %d " , updatestring, newupdatevalue,  1001) ;
+            // now excuation of the query
+            int rowaffected = statement.executeUpdate(query) ;
+
+            // now creating the condtion
+            if (rowaffected >0){
+                System.out.println("successful data update !!!");
+            }else{
+                System.out.println("oops !!! no unsuccessful ");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
 
