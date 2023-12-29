@@ -1,6 +1,8 @@
 // importing the sql libreries
 
 import java.sql.*;
+import java.util.Calendar;
+import java.util.Scanner;
 
 
 public class Main {
@@ -91,6 +93,9 @@ public class Main {
        String updatestring =  filldetail.updateInformation();
         String newupdatevalue = filldetail.updatevalue(updatestring);
         System.out.println(updatestring+" "+newupdatevalue);
+        Scanner input = new Scanner(System.in) ;
+        System.out.println("enter your id ");
+        int id = input.nextInt() ;
 
 
         try {
@@ -101,7 +106,7 @@ public class Main {
             // creating the statement line
             Statement statement = connection.createStatement() ;
             // now creating the query
-            String query = String.format("UPDATE  STUDENT SET %s = '%s' WHERE id = %d " , updatestring, newupdatevalue,  1001) ;
+            String query = String.format("UPDATE  STUDENT SET %s = '%s' WHERE id = %d " , updatestring, newupdatevalue,id) ;
             // now excuation of the query
             int rowaffected = statement.executeUpdate(query) ;
 
