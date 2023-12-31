@@ -67,9 +67,13 @@ public class JdbcPriperdStatement {
 //        userinput.userinputmethod(url , username , passward);
 
 
-          CRUDoprationJDBC crud = new CRUDoprationJDBC() ;
-        crud.insurtopration(url, username , passward);
-        crud.deletedUserDetail(url, username , passward);
+//          CRUDoprationJDBC crud = new CRUDoprationJDBC() ;
+//          crud.insurtopration(url, username , passward);
+//          crud.deletedUserDetail(url, username , passward);
+
+        // creating the object
+        InsurtedDataUsingBatchProcessing insertcheckes = new InsurtedDataUsingBatchProcessing() ;
+        insertcheckes.insertUsingBatch(url , username , passward);
 
     }
 }

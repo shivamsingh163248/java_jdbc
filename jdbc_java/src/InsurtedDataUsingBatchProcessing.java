@@ -2,64 +2,73 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.PrimitiveIterator;
+
 import java.util.Scanner;
 
 public class InsurtedDataUsingBatchProcessing {
 
-    // now creating the method and used the batch processing system
 
-    public void InsertUsingBatchProcessing( String url , String username , String password){
+    public  void insertUsingBatch(String url , String username , String passward){
 
-        // creating the connection after the loading the drive manager
-        // we are the writing the connection in the  try block\
-        Detail crudOpration = new Detail() ;
+        // fist we are the connection
+        // now creating the try catch block for the handel the exception
+        //connection take input username and password and the url
 
         try {
-            Connection connection = DriverManager.getConnection(url , username , password) ;
-            //after the making the connection creating the query for the  pri paired statement
-            String query = "INSERT INTO STUDENT(first_name , last_name , email , gender , mobile_no)VALUES(?,?,?,?,?)";
-            // after they are insert creating the statement
+            Connection connection = DriverManager.getConnection(url , username , passward) ;
+            String query = "INSERT INTO STUDENT(first_name , last_name , email , gender , mobile_no)VALUES(?,?,?,?,?)" ;
+            // now creating the prepaired  the statement
             PreparedStatement preparedStatement = connection.prepareStatement(query) ;
 
-            // now set the value using the batch process  system
-            // creating the while loop
-            while (true){
-                crudOpration.takeinput();
-                // now set the data
-                preparedStatement.setString(1, crudOpration.getFist_name());
-                preparedStatement.setString(2, crudOpration.getLast_name());
-                preparedStatement.setString(3, crudOpration.getEmail());
-                preparedStatement.setString(4, crudOpration.getGender());
-                preparedStatement.setString(5, crudOpration.getMobile_number());
 
-                // user display
-                preparedStatement.addBatch(query);
+            while (true) {
 
-                System.out.println("do you want insert again data replay (Y/N)");
+                // now set the value in value
+                 Detail CrudOpration = new Detail() ;
+                 CrudOpration.takeinput();
+
+                preparedStatement.setString(1, CrudOpration.getFist_name());
+                preparedStatement.setString(2, CrudOpration.getLast_name());
+                preparedStatement.setString(3, CrudOpration.getEmail());
+                preparedStatement.setString(4, CrudOpration.getGender());
+                preparedStatement.setString(5, CrudOpration.getMobile_number());
+
+                // now excution of the quer
+
+                preparedStatement.addBatch();
+
+                // now creating for the loop termination
                 Scanner input = new Scanner(System.in) ;
-                String value = input.next();
-
-                // now creating the condition
-                if (value.equalsIgnoreCase("Y")){
-                    // creating the new object
-                    crudOpration = new Detail() ;
+                System.out.println("if you wan insert agin the insurt no Y/N");
+                String value = input.next() ;
+                if(value.toUpperCase().equals("Y")){
                     break;
                 }
-
-
             }
 
-            // now execute all the batch
-            int[]arr = preparedStatement.executeBatch();
+
+
+
+            int[]resultset = preparedStatement.executeBatch() ;
+
+            // now creatin the condition for the successful and unsuccessful
+          // now printing the whole array
+            for (int i = 0; i < resultset.length; i++) {
+                if (resultset[i] > 0) {
+                    System.out.println(resultset[i] + "successful");
+                } else {
+                    System.out.println(resultset[i] + " Opps Uuccessful");
+                }
+
+            }
 
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     }
+
+
 
 
 }
