@@ -207,4 +207,13 @@ public class Detail {
         }
     }
 
+    public int deleteOpration (){
+        System.out.println("Enter your id ");
+        Scanner input = new Scanner(System.in) ;
+        int id = input.nextInt() ;
+        // you can not the update id
+        // so now we are the return the value
+        return id ;
+    }
+
 }

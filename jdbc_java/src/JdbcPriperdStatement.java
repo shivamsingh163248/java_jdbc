@@ -58,14 +58,18 @@ public class JdbcPriperdStatement {
             System.out.println(e.getMessage());
         }
 
-       // now direct callling the method
-        // userinputmethod();
-        //now creating the object of the updateinformation class
-        UpdateInformation userinput = new UpdateInformation();
+//       // now direct callling the method
+//        // userinputmethod();
+//        //now creating the object of the updateinformation class
+//        UpdateInformation userinput = new UpdateInformation();
+//
+//        // now callling the function
+//        userinput.userinputmethod(url , username , passward);
 
-        // now callling the function
-        userinput.userinputmethod(url , username , passward);
 
+          CRUDoprationJDBC crud = new CRUDoprationJDBC() ;
+        crud.insurtopration(url, username , passward);
+        crud.deletedUserDetail(url, username , passward);
 
     }
 }
