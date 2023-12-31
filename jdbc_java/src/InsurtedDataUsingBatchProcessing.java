@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.PrimitiveIterator;
+import java.util.Scanner;
 
 public class InsurtedDataUsingBatchProcessing {
 
@@ -33,10 +34,25 @@ public class InsurtedDataUsingBatchProcessing {
                 preparedStatement.setString(5, crudOpration.getMobile_number());
 
                 // user display
+                preparedStatement.addBatch(query);
+
                 System.out.println("do you want insert again data replay (Y/N)");
+                Scanner input = new Scanner(System.in) ;
+                String value = input.next();
+
+                // now creating the condition
+                if (value.equalsIgnoreCase("Y")){
+                    // creating the new object
+                    crudOpration = new Detail() ;
+                    break;
+                }
 
 
             }
+
+            // now execute all the batch
+            int[]arr = preparedStatement.executeBatch();
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
