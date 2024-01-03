@@ -1,31 +1,29 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 import java.util.Scanner;
 
 public class InsurtedDataUsingBatchProcessing {
 
 
-    public  void insertUsingBatch(String url , String username , String passward){
+    public void insertUsingBatch(String url, String username, String passward) {
 
         // fist we are the connection
         // now creating the try catch block for the handel the exception
         //connection take input username and password and the url
 
         try {
-            Connection connection = DriverManager.getConnection(url , username , passward) ;
-            String query = "INSERT INTO STUDENT(first_name , last_name , email , gender , mobile_no)VALUES(?,?,?,?,?)" ;
+            Connection connection = DriverManager.getConnection(url, username, passward);
+
+            String query = "INSERT INTO STUDENT(first_name , last_name , email , gender , mobile_no)VALUES(?,?,?,?,?)";
             // now creating the prepaired  the statement
-            PreparedStatement preparedStatement = connection.prepareStatement(query) ;
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
 
 
             while (true) {
 
                 // now set the value in value
-                 Detail CrudOpration = new Detail() ;
-                 CrudOpration.takeinput();
+                Detail CrudOpration = new Detail();
+                CrudOpration.takeinput();
 
                 preparedStatement.setString(1, CrudOpration.getFist_name());
                 preparedStatement.setString(2, CrudOpration.getLast_name());
@@ -38,21 +36,19 @@ public class InsurtedDataUsingBatchProcessing {
                 preparedStatement.addBatch();
 
                 // now creating for the loop termination
-                Scanner input = new Scanner(System.in) ;
+                Scanner input = new Scanner(System.in);
                 System.out.println("if you wan insert agin the insurt no Y/N");
-                String value = input.next() ;
-                if(value.toUpperCase().equals("Y")){
+                String value = input.next();
+                if (value.toUpperCase().equals("Y")) {
                     break;
                 }
             }
 
 
-
-
-            int[]resultset = preparedStatement.executeBatch() ;
+            int[] resultset = preparedStatement.executeBatch();
 
             // now creatin the condition for the successful and unsuccessful
-          // now printing the whole array
+            // now printing the whole array
             for (int i = 0; i < resultset.length; i++) {
                 if (resultset[i] > 0) {
                     System.out.println(resultset[i] + "successful");
@@ -67,6 +63,9 @@ public class InsurtedDataUsingBatchProcessing {
             throw new RuntimeException(e);
         }
     }
+
+
+
 
 
 
